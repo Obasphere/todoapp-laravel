@@ -14,10 +14,24 @@
 
     <hr>
 
-    @foreach($todos as $todo)
-        {{ $todo->todo }} <a href="{{ route('todo.delete', ['id' => $todo->id]) }}" class="btn btn-danger"> x </a>
-        <a href="{{ route('todo.update', ['id' => $todo->id]) }}" class="btn btn-info btn-xs"> Update </a>
-        <hr>
-    @endforeach
+    <table class="table table-boardered table-striped">
+        <tr>
+            <th>Todo</th>
+            <th>Actions</th>
+        </tr>
+        @foreach($todos as $todo)
+            <tr>
+                <td>{{ $todo->todo }}</td>
+                <td><a href="{{ route('todo.delete', ['id' => $todo->id]) }}" class="btn btn-danger"> x </a></td>
+                <td><a href="{{ route('todo.update', ['id' => $todo->id]) }}" class="btn btn-info btn-xs"> Update </a></td>
+                @if(!$todo->completed)
+                    <td><a href="{{ route('todos.completed', [ 'id' => $todo->id ]) }}" class="btn btn-xs btn-success"> Make as Done </a></td>
+                
+                @else
+                    <td><span class="text-success">Done!</span></td>
+                @endif
+            </tr>
+        @endforeach
+    </table>
 
 @stop
