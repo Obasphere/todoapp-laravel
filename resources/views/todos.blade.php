@@ -14,15 +14,17 @@
 
     <hr>
 
-    <table class="table table-boardered table-striped">
+    <table  style="border-left: 1px solid" class="table table-boardered table-striped">
         <tr>
-            <th>Todos</th>
+            <th style="border-left: 1px solid"> Todos </th>
+            <th style="border-left: 1px solid"> </th>
             <th>Actions</th>
+            <th> </th>
         </tr>
         @foreach($todos as $todo)
-            <tr>
+            <tr style="border-left: 1px solid">
                 <td>{{ $todo->todo }}</td>
-                <td><a href="{{ route('todo.delete', ['id' => $todo->id]) }}" class="btn btn-danger btn-xs"> x </a></td>
+                <td style="border-left: 1px solid"><a href="{{ route('todo.delete', ['id' => $todo->id]) }}" class="btn btn-danger btn-xs"> x </a></td>
                 <td><a href="{{ route('todo.update', ['id' => $todo->id]) }}" class="btn btn-info btn-xs"> Update </a></td>
                 @if(!$todo->completed)
                     <td><a href="{{ route('todos.completed', [ 'id' => $todo->id ]) }}" class="btn btn-xs btn-success"> Mark as Done </a></td>
