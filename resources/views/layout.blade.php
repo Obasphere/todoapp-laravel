@@ -45,7 +45,7 @@
             }
 
             .content {
-                text-align: center;
+                text-align: left;
             }
 
             .title {
