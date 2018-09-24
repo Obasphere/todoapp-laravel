@@ -17,21 +17,20 @@
     <table class="table table-striped table-bordered">
         <tr>
             <th> Todos </th>
-            <th></th>
             <th>Actions</th>
-            <th></th>
         </tr>
         @foreach($todos as $todo)
             <tr>
                 <td>{{ $todo->todo }}</td>
-                <td><a href="{{ route('todo.delete', ['id' => $todo->id]) }}" class="btn btn-danger btn-xs"> x </a></td>
-                <td><a href="{{ route('todo.update', ['id' => $todo->id]) }}" class="btn btn-info btn-xs"> Update </a></td>
-                @if(!$todo->completed)
-                    <td><a href="{{ route('todos.completed', [ 'id' => $todo->id ]) }}" class="btn btn-xs btn-success"> Mark as Done </a></td>
-                
-                @else
-                    <td><span class="text-success">Done!</span></td>
-                @endif
+                <td>
+                    <a href="{{ route('todo.delete', ['id' => $todo->id]) }}" class="btn btn-danger btn-xs"> x </a> |
+                    <a href="{{ route('todo.update', ['id' => $todo->id]) }}" class="btn btn-info btn-xs"> Update </a> |
+                    @if(!$todo->completed)
+                    <a href="{{ route('todos.completed', [ 'id' => $todo->id ]) }}" class="btn btn-xs btn-success"> Mark as Done </a>
+                    @else
+                    <span class="text-success">Done!</span>
+                    @endif
+                </td>
             </tr>
         @endforeach
     </table>
