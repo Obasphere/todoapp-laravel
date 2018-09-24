@@ -16,11 +16,14 @@
 
     <table class="table table-striped table-bordered">
         <tr>
+            <th> No. </th>
             <th> Todos </th>
             <th>Actions</th>
         </tr>
+        <?php $no=1; ?>
         @foreach($todos as $todo)
             <tr>
+                <td>{{ $no++ }}</td>
                 <td>{{ $todo->todo }}</td>
                 <td>
                     <a href="{{ route('todo.delete', ['id' => $todo->id]) }}" class="btn btn-danger btn-xs"> x </a> |
