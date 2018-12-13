@@ -8,6 +8,7 @@
         <title>Todo</title>
 
         <!-- Latest compiled and minified CSS -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
         <!-- Fonts -->
